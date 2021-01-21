@@ -1,6 +1,6 @@
 <header class="main-header">
     <!-- Logotipo -->
-    <a href="" class="logo">
+    <a href="inicio" class="logo">
         <!-- logo mini -->
         <span class="logo-mini">
             <img src="View/img/plantilla/logo.png" class="img-responsive" style="padding: 5px" alt="logo-pequeño">
