@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -11,7 +14,7 @@
 
     <?php
 
-    if (isset($_SESSION["iniciarSesion"]) && $_SESSION["iniciarSesion"] == ok){
+    if (isset($_SESSION["iniciarSesion"]) && $_SESSION["iniciarSesion"] == "ok"){
 
         /* Bootstrap 3.3.7 */
         echo '<link rel="stylesheet" href="View/bower_components/bootstrap/dist/css/bootstrap.min.css">';
@@ -26,6 +29,9 @@
         echo '<link rel="stylesheet" href="View/dist/css/skins/_all-skins.min.css">';
         /* Google Font */
         echo '<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">';
+        /* DataTables */
+        echo '<link rel="stylesheet" href="View/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">';
+        echo '<link rel="stylesheet" href="View/bower_components/datatables.net-bs/css/responsive.bootstrap.min.css">';
 
         /* jQuery 3 */
         echo '<script src="View/bower_components/jquery/dist/jquery.min.js"></script>';
@@ -37,10 +43,17 @@
         echo '<script src="View/bower_components/fastclick/lib/fastclick.js"></script>';
         /* AdminLTE App */
         echo '<script src="View/dist/js/adminlte.min.js"></script>';
+        /* DataTables */
+        echo '<script src="View/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>';
+        echo '<script src="View/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>';
+        echo '<script src="View/bower_components/datatables.net-bs/js/dataTables.responsive.min.js"></script>';
+        echo '<script src="View/bower_components/datatables.net-bs/js/responsive.bootstrap.min.js"></script>';
+        /* SweetAlert2 */
+        echo '<script src="View/plugins/sweetalert2/sweetalert2.all.js"></script>';
 
     } else {
 
-        echo '<link href="View/components/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">';
+        echo '<link rel="stylesheet" href="View/bower_components/bootstrap/dist/css/bootstrap.min.css">';
         echo '<link rel="stylesheet" href="View/components/fonts/font-awesome-4.7.0/css/font-awesome.min.css">';
         echo '<link rel="stylesheet" href="View/components/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">';
         echo '<link rel="stylesheet" href="View/components/vendor/animate/animate.css">';
@@ -50,9 +63,10 @@
         echo '<link rel="stylesheet" href="View/components/vendor/daterangepicker/daterangepicker.css">';
         echo '<link rel="stylesheet" href="View/components/css/util.css">';
         echo '<link rel="stylesheet" href="View/components/css/main.css">';
+        echo '<link rel="stylesheet" href="View/dist/css/AdminLTE.css">';
 
-        echo '<script src="components/vendor/jquery/jquery-3.2.1.min.js"></script>';
-        echo '<script src="components/vendor/animsition/js/animsition.min.js"></script>';
+        echo '<script src="View/components/vendor/jquery/jquery-3.2.1.min.js"></script>';
+        echo '<script src="View/components/vendor/animsition/js/animsition.min.js"></script>';
 
         echo '<script src="View/components/vendor/bootstrap/js/popper.js"></script>';
         echo '<script src="View/components/vendor/bootstrap/js/bootstrap.min.js"></script>';
@@ -61,6 +75,7 @@
         echo '<script src="View/components/vendor/daterangepicker/daterangepicker.js"></script>';
         echo '<script src="View/components/vendor/countdowntime/countdowntime.js"></script>';
         echo '<script src="View/components/js/main.js"></script>';
+        echo '<script src="View/dist/js/adminlte.min.js"></script>';
     }
     ?>
 
@@ -68,13 +83,15 @@
 
 </head>
 <body <?php
-        if (isset($_SESSION["iniciarSesion"]) && $_SESSION["iniciarSesion"] == ok){
+        if (isset($_SESSION["iniciarSesion"]) && $_SESSION["iniciarSesion"] == "ok"){
             echo 'class="hold-transition skin-blue sidebar-collapse sidebar-mini"';
+        }else{
+            echo 'class="hold-transition login-page"';
         }?>>
 
     <?php
 
-    if (isset($_SESSION["iniciarSesion"]) && $_SESSION["iniciarSesion"] == ok){
+    if (isset($_SESSION["iniciarSesion"]) && $_SESSION["iniciarSesion"] == "ok"){
 
         echo '<div class="wrapper">';
 
@@ -89,7 +106,8 @@
                 $_GET["ruta"] == "clientes" ||
                 $_GET["ruta"] == "ventas" ||
                 $_GET["ruta"] == "crear-venta" ||
-                $_GET["ruta"] == "reportes"){
+                $_GET["ruta"] == "reportes" ||
+                $_GET["ruta"] == "salir"){
                 include "modulos/".$_GET["ruta"].".php";
             } else {
                 include "modulos/404.php";

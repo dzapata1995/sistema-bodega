@@ -72,7 +72,7 @@
                         <div class="form-group">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-key"></i></span>
-                                <input type="text" name="nuevoRun" placeholder="Ingresar Usuario" required class="form-control input-lg">
+                                <input type="text" name="nuevoUsuario" placeholder="Ingresar Usuario" required class="form-control input-lg">
                             </div>
                         </div>
 
@@ -86,7 +86,7 @@
                         <div class="form-group">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-users"></i></span>
-                                <select class="form-control input-lg" name="nuevoRol">
+                                <select class="form-control input-lg" name="nuevoPerfil">
                                     <option value="">Seleccionar perfil</option>
                                     <option value="administrador">Administrador</option>
                                     <option value="supervisor">Supervisor</option>
@@ -108,14 +108,6 @@
                     <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Cancelar</button>
                     <button type="submit" class="btn btn-success pull-right">Guardar</button>
                 </div>
-
-                <?php
-
-                    $crearUsuario = new ControladorUsuarios();
-                    $crearUsuario->ctrCrearUsuario();
-
-                ?>
-
             </form>
         </div>
 
