@@ -101,7 +101,7 @@
         if (isset($_GET["ruta"])) {
             if($_GET["ruta"] == "inicio" ||
                 $_GET["ruta"] == "usuarios" ||
-                $_GET["ruta"] == "categorias" ||
+                $_GET["ruta"] == "centrocosto" ||
                 $_GET["ruta"] == "productos" ||
                 $_GET["ruta"] == "clientes" ||
                 $_GET["ruta"] == "ventas" ||
@@ -118,8 +118,6 @@
 
         include  "modulos/footer.php";
 
-        echo '<div class="control-sidebar-bg"></div>';
-
         echo '</div>';
     } else {
         include "modulos/login.php";
@@ -128,6 +126,8 @@
     ?>
 
 <script src="View/js/platilla.js"></script>
+<script src="View/js/usuarios.js"></script>
+
 
 </body>
 </html>

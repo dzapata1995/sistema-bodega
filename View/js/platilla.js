@@ -24,10 +24,6 @@ $(".tabla").DataTable({
         "oAria": {
             "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
             "sSortDescending": ": Activar para ordenar la columna de manera descendente"
-        },
-        "buttons": {
-            "copy": "Copiar",
-            "colvis": "Visibilidad"
         }
     }
 });
