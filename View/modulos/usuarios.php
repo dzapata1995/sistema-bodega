@@ -109,7 +109,7 @@
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-users"></i></span>
                                 <select class="form-control input-lg" name="nuevoRol">
-                                    <option value="">Seleccionar perfil</option>
+                                    <option hidden selected>Seleccionar perfil</option>
                                     <option value="Administrador">Administrador</option>
                                     <option value="Supervisor">Supervisor</option>
                                     <option value="Operario">Operario</option>

@@ -18,6 +18,8 @@
 
         /* Bootstrap 3.3.7 */
         echo '<link rel="stylesheet" href="View/bower_components/bootstrap/dist/css/bootstrap.min.css">';
+        /*Estilos Propios*/
+        echo '<link rel="stylesheet" href="View/css/style.css">';
         /* Font Awesome */
         echo '<link rel="stylesheet" href="View/bower_components/font-awesome/css/font-awesome.min.css">';
         /* Ionicons */
@@ -50,6 +52,12 @@
         echo '<script src="View/bower_components/datatables.net-bs/js/responsive.bootstrap.min.js"></script>';
         /* SweetAlert2 */
         echo '<script src="View/plugins/sweetalert2/sweetalert2.all.js"></script>';
+
+        /* InputMask */
+        echo '<script src="View/plugins/input-mask/jquery.inputmask.js"></script>';
+        echo '<script src="View/plugins/input-mask/jquery.inputmask.phone.extensions.js"></script>';
+        echo '<script src="View/plugins/input-mask/jquery.inputmask.extensions.js"></script>';
+
 
     } else {
 
@@ -84,7 +92,7 @@
 </head>
 <body <?php
         if (isset($_SESSION["iniciarSesion"]) && $_SESSION["iniciarSesion"] == "ok"){
-            echo 'class="hold-transition skin-blue sidebar-collapse sidebar-mini"';
+            echo 'class="hold-transition skin-blue sidebar-mini"';
         }else{
             echo 'class="hold-transition login-page"';
         }?>>
@@ -102,11 +110,15 @@
             if($_GET["ruta"] == "inicio" ||
                 $_GET["ruta"] == "usuarios" ||
                 $_GET["ruta"] == "centrocosto" ||
+                $_GET["ruta"] == "tarea" ||
+                $_GET["ruta"] == "proveedores" ||
                 $_GET["ruta"] == "productos" ||
-                $_GET["ruta"] == "clientes" ||
-                $_GET["ruta"] == "ventas" ||
-                $_GET["ruta"] == "crear-venta" ||
-                $_GET["ruta"] == "reportes" ||
+                $_GET["ruta"] == "orden" ||
+                $_GET["ruta"] == "calendario" ||
+                $_GET["ruta"] == "reporte-sr" ||
+                $_GET["ruta"] == "reporte-st" ||
+                $_GET["ruta"] == "reporte-p" ||
+                $_GET["ruta"] == "reporte-s" ||
                 $_GET["ruta"] == "salir"){
                 include "modulos/".$_GET["ruta"].".php";
             } else {

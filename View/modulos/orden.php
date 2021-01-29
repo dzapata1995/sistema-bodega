@@ -1,9 +1,10 @@
 <div class="content-wrapper">
     <section class="content-header">
-        <h1>Administrar Productos</h1>
+        <h1>Ordenes de Aplicación</h1>
         <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i>Inicio</a></li>
-            <li class="active">Administrar Productos</li>
+            <li><a href="inicio"><i class="fa fa-dashboard"></i>Inicio</a></li>
+            <li>Orden de Aplicación</li>
+            <li class="active">Administración</li>
         </ol>
     </section>
     <section class="content">
