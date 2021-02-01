@@ -1,48 +1,47 @@
-<header class="main-header">
-    <!-- Logotipo -->
-    <a href="inicio" class="logo">
-        <!-- logo mini -->
-        <span class="logo-mini">
-            <img src="View/img/plantilla/logo.png" class="img-responsive" style="padding: 5px" alt="logo-pequeño">
-        </span>
-
-        <!-- logo normal -->
-        <span class="logo-lg">
-            <img src="View/img/plantilla/logo-large.png" class="img-responsive" alt="logo-grande">
-        </span>
-    </a>
-
+<nav class="main-header navbar navbar-expand navbar-white navbar-light">
     <!-- Barra de Navegación -->
-        <nav class="navbar navbar-static-top" role="navigation">
-            <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
-                <span class="sr-only">Toggle navigation</span>
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" data-widget="pushmenu" href="#" role="button">
+                <i class="fas fa-bars"></i>
             </a>
-            <!-- perfil usuario -->
-            <div class="navbar-custom-menu">
-                <ul class="nav navbar-nav">
-                    <li class="dropdown user user-menu">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <?php
-
-                            if ($_SESSION["foto"] != ""){
-                                echo '<img src="'.$_SESSION["foto"].'" class="user-image">';
-                            } else {
-                                echo '<img src="View/img/usuarios/default/anonymous.png" class="user-image">';
-                            }
-
-                            ?>
-                            <span class="hidden-xs"><?= $_SESSION["nombre"] ?></span>
-                        </a>
-                        <!-- dropdown -->
-                        <ul class="dropdown-menu">
-                            <li class="user-body">
-                                <div class="pull-right">
-                                    <a href="salir" class="btn btn-default btn-flat">Salir</a>
-                                </div>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-</header>
+        </li>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item dropdown user-menu">
+            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                <?php
+                if ($_SESSION["foto"] != ""){
+                    echo '<img src="'.$_SESSION["foto"].'" class="user-image img-circle elevation-2">';
+                } else {
+                    echo '<img src="View/img/usuarios/default/anonymous.png" class="user-image img-circle elevation-2">';
+                }
+                ?>
+                <span class="d-none d-md-inline"><?= $_SESSION["nombre"] ?></span>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                <li class="user-header bg-primary">
+                    <?php
+                    if ($_SESSION["foto"] != ""){
+                        echo '<img src="'.$_SESSION["foto"].'" class="img-circle elevation-2">';
+                    } else {
+                        echo '<img src="View/img/usuarios/default/anonymous.png" class="img-circle elevation-2">';
+                    }
+                    ?>
+                    <p>
+                        <?= $_SESSION["nombre"] ?>
+                        <small> <?= $_SESSION["rol"] ?></small>
+                    </p>
+                </li>
+                <li class="user-footer">
+                    <a href="salir" class="btn btn-default btn-flat float-right">Salir</a>
+                </li>
+            </ul>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+                <i class="fas fa-expand-arrows-alt"></i>
+            </a>
+        </li>
+    </ul>
+</nav>

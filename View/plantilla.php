@@ -17,41 +17,52 @@
     if (isset($_SESSION["iniciarSesion"]) && $_SESSION["iniciarSesion"] == "ok"){
 
         /* Bootstrap 3.3.7 */
-        echo '<link rel="stylesheet" href="View/bower_components/bootstrap/dist/css/bootstrap.min.css">';
+        echo '<link rel="stylesheet" href="View/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.css">';
         /*Estilos Propios*/
         echo '<link rel="stylesheet" href="View/css/style.css">';
         /* Font Awesome */
-        echo '<link rel="stylesheet" href="View/bower_components/font-awesome/css/font-awesome.min.css">';
+        echo '<link rel="stylesheet" href="View/plugins/fontawesome-free/css/all.css">';
         /* Ionicons */
-        echo '<link rel="stylesheet" href="View/bower_components/Ionicons/css/ionicons.min.css">';
+        echo '<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">';
         /* Theme style */
-        echo '<link rel="stylesheet" href="View/dist/css/AdminLTE.css">';
+        echo '<link rel="stylesheet" href="View/dist/css/adminlte.css">';
         /* AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. */
-        echo '<link rel="stylesheet" href="View/dist/css/skins/_all-skins.min.css">';
+        echo '<link rel="stylesheet" href="View/dist/css/adminlte.css">';
         /* Google Font */
-        echo '<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">';
+        echo '<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">';
         /* DataTables */
-        echo '<link rel="stylesheet" href="View/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">';
-        echo '<link rel="stylesheet" href="View/bower_components/datatables.net-bs/css/responsive.bootstrap.min.css">';
+        echo '<link rel="stylesheet" href="View/plugins/datatables-bs4/css/dataTables.bootstrap4.css">';
+        echo '<link rel="stylesheet" href="View/plugins/datatables-buttons/css/buttons.bootstrap4.css">';
+        echo '<link rel="stylesheet" href="View/plugins/datatables-responsive/css/responsive.bootstrap4.css">';
+        /* SweetAlert2 */
+        echo '<link rel="stylesheet" href="View/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.css">';
+        /* Toastr */
+        echo '<link rel="stylesheet" href="View/plugins/toastr/toastr.css">';
 
         /* jQuery 3 */
-        echo '<script src="View/bower_components/jquery/dist/jquery.min.js"></script>';
-        /* Bootstrap 3.3.7 */
-        echo '<script src="View/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>';
-        /* SlimScroll */
-        echo '<script src="View/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>';
+        echo '<script src="View/plugins/jquery/jquery.js"></script>';
+        /* Bootstrap 4 */
+        echo '<script src="View/plugins/bootstrap/js/bootstrap.bundle.js"></script>';
         /* FastClick */
-        echo '<script src="View/bower_components/fastclick/lib/fastclick.js"></script>';
+        echo '<script src="View/plugins/fastclick/fastclick.js"></script>';
         /* AdminLTE App */
-        echo '<script src="View/dist/js/adminlte.min.js"></script>';
+        echo '<script src="View/dist/js/adminlte.js"></script>';
+        echo '<script src="View/dist/js/demo.js"></script>';
         /* DataTables */
-        echo '<script src="View/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>';
-        echo '<script src="View/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>';
-        echo '<script src="View/bower_components/datatables.net-bs/js/dataTables.responsive.min.js"></script>';
-        echo '<script src="View/bower_components/datatables.net-bs/js/responsive.bootstrap.min.js"></script>';
+        echo '<script src="View/plugins/datatables/jquery.dataTables.js"></script>';
+        echo '<script src="View/plugins/datatables-bs4/js/dataTables.bootstrap4.js"></script>';
+        echo '<script src="View/plugins/datatables-responsive/js/dataTables.responsive.js"></script>';
+        echo '<script src="View/plugins/datatables-responsive/js/responsive.bootstrap4.js"></script>';
+        echo '<script src="View/plugins/datatables-buttons/js/dataTables.buttons.js"></script>';
+        echo '<script src="View/plugins/datatables-buttons/js/buttons.bootstrap4.js"></script>';
+        echo '<script src="View/plugins/datatables-buttons/js/buttons.html5.js"></script>';
+        echo '<script src="View/plugins/datatables-buttons/js/buttons.colVis.js"></script>';
+        echo '<script src="View/plugins/datatables-buttons/js/buttons.print.js"></script>';
         /* SweetAlert2 */
         echo '<script src="View/plugins/sweetalert2/sweetalert2.all.js"></script>';
+        /* Toastr */
+        echo '<script src="View/plugins/toastr/toastr.min.js"></script>';
 
         /* InputMask */
         echo '<script src="View/plugins/input-mask/jquery.inputmask.js"></script>';
@@ -61,7 +72,7 @@
 
     } else {
 
-        echo '<link rel="stylesheet" href="View/bower_components/bootstrap/dist/css/bootstrap.min.css">';
+        echo '<link rel="stylesheet" href="View/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.css">';
         echo '<link rel="stylesheet" href="View/components/fonts/font-awesome-4.7.0/css/font-awesome.min.css">';
         echo '<link rel="stylesheet" href="View/components/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">';
         echo '<link rel="stylesheet" href="View/components/vendor/animate/animate.css">';
@@ -83,7 +94,7 @@
         echo '<script src="View/components/vendor/daterangepicker/daterangepicker.js"></script>';
         echo '<script src="View/components/vendor/countdowntime/countdowntime.js"></script>';
         echo '<script src="View/components/js/main.js"></script>';
-        echo '<script src="View/dist/js/adminlte.min.js"></script>';
+        echo '<script src="View/dist/js/adminlte.js"></script>';
     }
     ?>
 
@@ -92,7 +103,7 @@
 </head>
 <body <?php
         if (isset($_SESSION["iniciarSesion"]) && $_SESSION["iniciarSesion"] == "ok"){
-            echo 'class="hold-transition skin-blue sidebar-mini"';
+            echo 'class="hold-transition sidebar-mini"';
         }else{
             echo 'class="hold-transition login-page"';
         }?>>
@@ -112,6 +123,7 @@
                 $_GET["ruta"] == "centrocosto" ||
                 $_GET["ruta"] == "tarea" ||
                 $_GET["ruta"] == "proveedores" ||
+                $_GET["ruta"] == "facturas" ||
                 $_GET["ruta"] == "productos" ||
                 $_GET["ruta"] == "orden" ||
                 $_GET["ruta"] == "calendario" ||

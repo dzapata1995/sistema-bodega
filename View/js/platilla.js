@@ -1,9 +1,8 @@
-/* SideBar Menu */
-
-$('.sidebar-menu').tree()
-
 /* DataTable */
 $(".tabla").DataTable({
+    "responsive": true,
+    "lengthChange": false,
+    "autoWidth": false,
     "language" : {
         "sProcessing":     "Procesando...",
         "sLengthMenu":     "Mostrar _MENU_ registros",

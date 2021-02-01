@@ -7,12 +7,11 @@ class ControladorProveedores {
             if (preg_match('/^[a-zA-ZñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevoNombre"])) {
                 $tabla = "proveedores";
 
-                $datos = array("nombre",
-                                "rut",
-                                "rubro",
-                                "n_contacto",
-                                "email"
-                );
+                $datos = array("nombre" => $_POST["nuevoNombre"],
+                                "rut" => $_POST["nuevoRut"],
+                                "rubro" => $_POST["nuevoRubro"],
+                                "n_contacto" => $_POST["nuevoContacto"],
+                                "email" => $_POST["nuevoEmail"]);
 
                 $respuesta = ModeloProveedores::mdlIngresarProveedores($tabla, $datos);
 
@@ -25,7 +24,7 @@ class ControladorProveedores {
                             confirmButtonText: "Cerrar"
                         }).then(function (result){
                            if (result.value) {
-                               window.location = "tarea";
+                               window.location = "proveedores";
                            } 
                         });
                         </script>';
@@ -39,7 +38,7 @@ class ControladorProveedores {
                         confirmButtonText: "Cerrar"
                     }).then(function(result) {
                        if (result.value) {
-                           window.location = "tarea";
+                           window.location = "proveedores";
                        } 
                     });
                 </script>';
@@ -47,7 +46,7 @@ class ControladorProveedores {
         }
     }
 
-    public static function ctrMostrarProveedore($item, $valor) {
+    public static function ctrMostrarProveedores($item, $valor) {
         $tabla = "proveedores";
         $respuesta = ModeloProveedores::mdlMostrarProveedores($tabla, $item, $valor);
 

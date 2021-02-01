@@ -19,6 +19,7 @@ class ModeloProveedores{
     }
 
     public static function mdlIngresarProveedores($tabla, $datos) {
+
         $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(nombre, rut, rubro, n_contacto, email) VALUES (:nombre, :rut, :rubro, :n_contacto, :email)");
 
         $stmt->bindParam(":nombre", $datos["nombre"], PDO::PARAM_STR);

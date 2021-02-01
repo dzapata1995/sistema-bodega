@@ -4,21 +4,23 @@ $(".nuevaFoto").change(function(){
     if(imagen["type"] != "image/jpeg" && imagen["type"] != "image/png"){
         $(".nuevaFoto").val("");
 
-        swal({
-            title: "Error al subir la imagen",
-            text: "¡La imagen debe estar en formato JPG o PNG!",
-            type: "error",
-            confirmButtonText: "¡Cerrar!"
+        Swal.fire({
+            title: '!La imagen debe estar en formato JPG o PNG!',
+            icon: 'error',
+            focusConfirm: false,
+            confirmButtonText: 'Cerrar'
         });
+
     }else if(imagen["size"] > 2000000){
         $(".nuevaFoto").val("");
 
-        swal({
-            title: "Error al subir la imagen",
-            text: "¡La imagen no debe pesar más de 2MB!",
-            type: "error",
-            confirmButtonText: "¡Cerrar!"
+        Swal.fire({
+            title: '!La imagen debe pesar menos de 2MB!',
+            icon: 'error',
+            focusConfirm: false,
+            confirmButtonText: 'Cerrar'
         });
+
     }else{
         var datosImagen = new FileReader;
         datosImagen.readAsDataURL(imagen);
@@ -68,6 +70,8 @@ $(document).on("click", ".btnActivar", function (){
     datos.append("activarId", idUsuario);
     datos.append("activarUsuario", estadoUsuario);
 
+    Command: toastr["success"]("Se actualizo el estado del usuario.", "Actualización Lograda")
+
     $.ajax({
         url:"ajax/usuarios.ajax.php",
         method: "POST",
@@ -77,15 +81,23 @@ $(document).on("click", ".btnActivar", function (){
         processData: false,
         success: function (respuesta) {
             if (window.matchMedia("(max-width:767px").matches) {
-                swal ({
-                    title: "El usuario ha sido actualizado",
-                    type: "success",
-                    confirmButtonText: "Cerrar"
-                    }).then(function (result) {
-                        if (result.value) {
-                            window.location = "usuarios";
-                        }
-                    });
+                toastr.options = {
+                    "closeButton": false,
+                    "debug": false,
+                    "newestOnTop": false,
+                    "progressBar": false,
+                    "positionClass": "toast-top-right",
+                    "preventDuplicates": false,
+                    "onclick": null,
+                    "showDuration": "100",
+                    "hideDuration": "100",
+                    "timeOut": "2500",
+                    "extendedTimeOut": "1000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                }
             }
         }
     })

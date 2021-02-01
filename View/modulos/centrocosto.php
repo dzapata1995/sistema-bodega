@@ -26,19 +26,28 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>N_17</td>
-                            <td>5</td>
-                            <td>Nogales</td>
-                            <td>
-                                <div class="btn-group">
-                                    <button class="btn btn-success"><i class="fa fa-eye"></i></button>
-                                    <button class="btn btn-warning"><i class="fa fa-pencil"></i></button>
-                                    <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
-                                </div>
-                            </td>
-                        </tr>
+                        <?php
+
+                        $item = null;
+                        $valor = null;
+
+                        $centrocosto = ControladorCentroCosto::ctrMostrarCentroCosto($item, $valor);
+
+                        foreach ($centrocosto as $key => $value) {
+                            echo '<tr>
+                                    <td>'.$value["id"].'</td>
+                                    <td>'.$value["codigo"].'</td>
+                                    <td>'.$value["estacion"].'</td>
+                                    <td>'.$value["fruta"].'</td>
+                                    <td>
+                                        <div class="btn-group">
+                                            <button class="btn btn-warning btnEditarUsuario" idUsuario="'.$value["id"].'" data-toggle="modal" data-target="#modalEditarUsuario"><i class="fa fa-pencil"></i></button>
+                                            <button class="btn btn-danger"><i class="fa fa-times"></i></button>
+                                        </div>  
+                                    </td>
+                            </tr>';
+                        }
+                        ?>
                     </tbody>
                 </table>
             </div>
@@ -74,7 +83,7 @@
                         <div class="form-group">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                                <input type="number" name="nuevoFruta" placeholder="Ingresar Fruta" required class="form-control input-lg">
+                                <input type="text" name="nuevoFruta" placeholder="Ingresar Fruta" required class="form-control input-lg">
                             </div>
                         </div>
 

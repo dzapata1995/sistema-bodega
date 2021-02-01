@@ -27,20 +27,30 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Juan Peréz</td>
-                        <td>55.555.555-5</td>
-                        <td>Agricultura</td>
-                        <td>+569-87654321</td>
-                        <td>ejemplo@ejemplo.cl</td>
-                        <td>
-                            <div class="btn-group">
-                                <button class="btn btn-warning"><i class="fa fa-pencil"></i></button>
-                                <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
-                            </div>
-                        </td>
-                    </tr>
+                    <?php
+
+                    $item = null;
+                    $valor = null;
+
+                    $proveedores = ControladorProveedores::ctrMostrarProveedores($item, $valor);
+
+                    foreach ($proveedores as $key => $value) {
+                        echo '<tr>
+                                <td>'.$value["id"].'</td>
+                                <td>'.$value["nombre"].'</td>
+                                <td>'.$value["rut"].'</td>
+                                <td>'.$value["rubro"].'</td>
+                                <td>'.$value["n_contacto"].'</td>
+                                <td>'.$value["email"].'</td>
+                                <td>
+                                    <div class="btn-group">
+                                        <button class="btn btn-warning btnEditarUsuario" idUsuario="'.$value["id"].'" data-toggle="modal" data-target="#modalEditarUsuario"><i class="fa fa-pencil"></i></button>
+                                        <button class="btn btn-danger"><i class="fa fa-times"></i></button>
+                                    </div>  
+                                </td>
+                        </tr>';
+                    }
+                    ?>
                     </tbody>
                 </table>
             </div>
