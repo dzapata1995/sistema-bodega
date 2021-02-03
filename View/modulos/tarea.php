@@ -1,54 +1,69 @@
 <div class="content-wrapper">
-    <section class="content-header">
-        <h1>Listado de Tareas</h1>
-        <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i>Inicio</a></li>
-            <li class="active">Tareas</li>
-        </ol>
-    </section>
-    <section class="content">
-        <div class="box">
-            <div class="box-header with-border">
-                <button class="btn btn-primary" data-toggle="modal" data-target="#modalAddTarea">
-                    Agregar Tarea
-                </button>
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0">Listado de Tareas</h1>
+                </div>
+                <div class="col-sm">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="inicio" class="text-success">Inicio</a></li>
+                        <li class="breadcrumb-item active">Tareas</li>
+                    </ol>
+                </div>
             </div>
-            <div class="box-body">
-                <table class="table table-bordered table-striped dt-responsive tabla">
-                    <thead>
-                    <tr>
-                        <th style="width: 10px">#</th>
-                        <th>Nombre</th>
-                        <th>Descripción</th>
-                        <th>Año</th>
-                        <th>Acciones</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <?php
+        </div>
+    </div>
 
-                    $item = null;
-                    $valor = null;
+    <section class="content">
+        <div class="content-header">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <button class="btn btn-outline-success" data-toggle="modal" data-target="#modalAddTarea">
+                                Agregar Tarea
+                            </button>
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-bordered table-striped dt-responsive tabla">
+                                <thead>
+                                <tr>
+                                    <th style="width: 10px">#</th>
+                                    <th>Nombre</th>
+                                    <th>Descripción</th>
+                                    <th>Año</th>
+                                    <th>Acciones</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <?php
 
-                    $tareas = ControladorTareas::ctrMostrarUsuarios($item, $valor);
+                                $item = null;
+                                $valor = null;
 
-                    foreach ($tareas as $key => $value) {
-                        echo '<tr>
+                                $tareas = ControladorTareas::ctrMostrarUsuarios($item, $valor);
+
+                                foreach ($tareas as $key => $value) {
+                                    echo '<tr>
                                 <td>'.$value["id"].'</td>
                                 <td>'.$value["nombre"].'</td>
                                 <td>'.$value["descripcion"].'</td>
                                 <td>'.$value["ano"].'</td>
-                                <td>
+                                <td style="width: 20px;">
                                     <div class="btn-group">
-                                        <button class="btn btn-warning btnEditarUsuario" idUsuario="'.$value["id"].'" data-toggle="modal" data-target="#modalEditarUsuario"><i class="fa fa-pencil"></i></button>
+                                        <button class="btn btn-warning btnEditarUsuario" idUsuario="'.$value["id"].'" data-toggle="modal" data-target="#modalEditarUsuario"><i class="fas fa-edit"></i></button>
                                         <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
                                     </div>  
                                 </td>
                         </tr>';
-                    }
-                    ?>
-                    </tbody>
-                </table>
+                                }
+                                ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -58,44 +73,44 @@
 <div id="modalAddTarea" class="modal fade" data-backdrop="static" tabindex="-1" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
+            <div class="modal-header" style="background: #1b5e45; color: white;">
+                <h4 class="modal-title">Agregar Tarea</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+                   <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
             <form method="post" role="form" enctype="multipart/form-data">
-                <div class="modal-header" style="background: #3c8dbc; color:white;">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Agregar Tarea</h4>
-                </div>
                 <div class="modal-body">
-                    <div class="box-body">
-                        <div class="form-group">
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-key"></i></span>
-                                <input type="text" id="nuevoNombre" name="nuevoNombre" placeholder="Ingresar Nombre de la Tarea" required class="form-control input-lg">
-                            </div>
+                    <div class="form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-tasks"></i></span>
+                            <input type="text" id="nuevoNombre" name="nuevoNombre" placeholder="Ingresar Nombre de la Tarea" required class="form-control">
                         </div>
-
-                        <div class="form-group">
-                            <div class="input-group">
-                                <span class="input-group-addon"></span>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="far fa-calendar"></i></span>
+                            <select class="form-control" name="nuevoAno">
+                                <option hidden selected>Seleccione un Año</option>
                                 <?php
-                                $cont = date('Y');
+                                $year = date('Y');
+                                for ($i = 2020; $i<=$year+1; $i++) {
+                                    echo '<option value="'.$i.'">'.$i.'</option>';
+                                }
                                 ?>
-                                <select class="form-control input-lg" name="nuevoAno">
-                                    <option hidden selected>Seleccione un Año</option>
-                                    <?php while ($cont >= 2020) {?>
-                                        <option value="<?php echo($cont); ?>"><?php echo($cont);?></option>
-                                        <?php $cont = ($cont-1);} ?>
-                                </select>
-                            </div>
+                            </select>
                         </div>
+                    </div>
 
-                        <div class="form-group">
-                            <textarea class="form-control input-lg" rows="5" placeholder="Ingrese Descripción" name="nuevoDescripcion"></textarea>
+                    <div class="form-group">
+                        <div class="input-group-prepend">
+                            <textarea style="overflow: auto; resize: none;" class="form-control" rows="6" placeholder="Ingrese Descripción" name="nuevoDescripcion"></textarea>
                         </div>
-
                     </div>
                 </div>
-                <div class="modal-footer">
+                <div class="modal-footer justify-content-between" style="background: #1b5e45; color: white;">
                     <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-success pull-right">Guardar</button>
+                    <button type="submit" class="btn btn-primary pull-right">Guardar</button>
                 </div>
 
                 <?php

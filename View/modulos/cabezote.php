@@ -1,4 +1,4 @@
-<nav class="main-header navbar navbar-expand navbar-white navbar-light">
+<nav class="main-header navbar navbar-expand navbar-dark navbar-success border-bottom-0">
     <!-- Barra de Navegación -->
     <ul class="navbar-nav">
         <li class="nav-item">
@@ -20,7 +20,7 @@
                 <span class="d-none d-md-inline"><?= $_SESSION["nombre"] ?></span>
             </a>
             <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                <li class="user-header bg-primary">
+                <li class="user-header bg-white">
                     <?php
                     if ($_SESSION["foto"] != ""){
                         echo '<img src="'.$_SESSION["foto"].'" class="img-circle elevation-2">';
@@ -28,13 +28,13 @@
                         echo '<img src="View/img/usuarios/default/anonymous.png" class="img-circle elevation-2">';
                     }
                     ?>
-                    <p>
+                    <p class="text-success">
                         <?= $_SESSION["nombre"] ?>
                         <small> <?= $_SESSION["rol"] ?></small>
                     </p>
                 </li>
-                <li class="user-footer">
-                    <a href="salir" class="btn btn-default btn-flat float-right">Salir</a>
+                <li class="user-footer bg-success">
+                    <a href="salir" class="btn btn-outline-warning float-right">Salir</a>
                 </li>
             </ul>
         </li>

@@ -137,8 +137,8 @@ class ControladorUsuarios {
                 if ($respuesta == 'ok') {
 
                     echo '<script>
-                        swal({
-                            type: "success",
+                        Swal.fire({
+                            icon: "success",
                             title: "!El usuario ha sido guardado correctamente¡",
                             showConfirmButton: true,
                             confirmButtonText: "Cerrar"
@@ -154,8 +154,8 @@ class ControladorUsuarios {
             } else {
 
                 echo '<script>
-                    swal({
-                        type: "error",
+                    Swal.fire({
+                        icon: "error",
                         title: "!El usuario no puede ir vacío o llevar caracteres especiales¡",
                         showConfirmButton: true,
                         confirmButtonText: "Cerrar"
@@ -235,8 +235,8 @@ class ControladorUsuarios {
                         $encriptar = crypt($_POST["editarPassword"], '$2a$07$asxx54ahjppf45sd87a5a4dDDGsystemdev$');
                     } else {
                         echo '<script>
-                                swal({
-                                    type: "error",
+                                Swal.fire({
+                                    icon: "error",
                                     title: "!La contraseña no puede ir vacía o llevar caracteres especiales¡",
                                     showConfirmButton: true,
                                     confirmButtonText: "Cerrar"
@@ -263,8 +263,8 @@ class ControladorUsuarios {
                 if ($respuesta == "ok") {
 
                     echo '<script>
-                        swal({
-                            type: "success",
+                        Swal.fire({
+                            icon: "success",
                             title: "!El usuario ha sido editado correctamente¡",
                             showConfirmButton: true,
                             confirmButtonText: "Cerrar"
@@ -277,8 +277,8 @@ class ControladorUsuarios {
 
                 } else {
                     echo '<script>
-                        swal({
-                            type: "error",
+                        Swal.fire({
+                            icon: "error",
                             title: "!El usuario no ha sido editado correctamente¡",
                             showConfirmButton: true,
                             confirmButtonText: "Cerrar"
@@ -293,16 +293,12 @@ class ControladorUsuarios {
             } else {
 
                 echo '<script>
-                    swal({
-                        type: "error",
+                    Swal.fire({
                         title: "!El nombre no puede ir vacío o llevar caracteres especiales¡",
-                        showConfirmButton: true,
+                        icon: "error",
+                        focusConfirm: false,
                         confirmButtonText: "Cerrar"
-                        }).then(function(result) {
-                           if (result.value) {
-                               window.location = "usuarios";
-                           } 
-                        });
+                    });
                 </script>';
 
             }

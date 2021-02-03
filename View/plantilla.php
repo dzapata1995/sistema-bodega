@@ -63,6 +63,8 @@
         echo '<script src="View/plugins/sweetalert2/sweetalert2.all.js"></script>';
         /* Toastr */
         echo '<script src="View/plugins/toastr/toastr.min.js"></script>';
+        /* Custom File Input */
+        echo '<script src="View/plugins/bs-custom-file-input/bs-custom-file-input.js"></script>';
 
         /* InputMask */
         echo '<script src="View/plugins/input-mask/jquery.inputmask.js"></script>';
@@ -149,9 +151,16 @@
 
     ?>
 
-<script src="View/js/platilla.js"></script>
-<script src="View/js/usuarios.js"></script>
+    <script src="View/js/platilla.js"></script>
+    <script src="View/js/usuarios.js"></script>
 
+    <aside class="control-sidebar control"></aside>
+
+    <script>
+        $(function() {
+            bsCustomFileInput.init();
+        })
+    </script>
 
 </body>
 </html>

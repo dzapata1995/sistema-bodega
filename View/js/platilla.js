@@ -1,7 +1,7 @@
 /* DataTable */
 $(".tabla").DataTable({
     "responsive": true,
-    "lengthChange": false,
+    "lengthChange": true,
     "autoWidth": false,
     "language" : {
         "sProcessing":     "Procesando...",
@@ -26,3 +26,13 @@ $(".tabla").DataTable({
         }
     }
 });
+
+$(document).ready(function() {
+    var URLactual = window.location.pathname;
+
+    URLactual = URLactual.split('/').pop();
+    URLactual = URLactual.split('.');
+
+    document.querySelector('.' + URLactual[0]).classList.add('active');
+
+})
