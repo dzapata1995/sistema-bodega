@@ -116,7 +116,7 @@ class ControladorUsuarios {
                         $destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
 
                         imagecopyresized($destino, $origen, 0,0,0,0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
-                        imagejpeg($destino, $ruta);
+                        imagepng($destino, $ruta);
 
                     }
 
@@ -222,7 +222,7 @@ class ControladorUsuarios {
                         $destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
 
                         imagecopyresized($destino, $origen, 0,0,0,0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
-                        imagejpeg($destino, $ruta);
+                        imagepng($destino, $ruta);
 
                     }
 

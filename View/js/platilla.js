@@ -36,3 +36,36 @@ $(document).ready(function() {
     document.querySelector('.' + URLactual[0]).classList.add('active');
 
 })
+
+/* JS Productos */
+
+
+$(document).on("click", ".btnVerProducto", function(){
+    var idProducto = $(this).attr("idProducto");
+    var datos = new FormData();
+    datos.append("idProducto", idProducto);
+
+    $.ajax({
+        url: "ajax/productos.ajax.php",
+        method: "POST",
+        data: datos,
+        cache: false,
+        contentType: false,
+        processData: false,
+        dataType: "json",
+        success: function (respuesta){
+            $("#verCodigo").val(respuesta["codigo"]);
+            $("#verNombre").val(respuesta["nombre"]);
+            $("#verDescripcion").val(respuesta["descripcion"]);
+            $("#verImagen").val(respuesta["imagen"]);
+            $("#verBodega").val(respuesta["fk_bodega"]);
+            $("#verStock").val(respuesta["cantidad_total"]);
+
+            $("#verIngreso").val(respuesta["ultimo_ingreso"]);
+
+            if (respuesta["imagen"] != "") {
+                $(".previsualizar").attr("src", respuesta["imagen"]);
+            }
+        }
+    });
+})

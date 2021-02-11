@@ -55,7 +55,7 @@
                                         <td>'.$value["run"].'</td>';
 
                                         if($value["foto"] != ""){
-                                            echo '<td><img src="'.$value["foto"].'" class="img-thumbnail" width="50px"></td>';
+                                            echo '<td><img src="'.$value["foto"].'" class="img-thumbnail" width="100px"></td>';
                                         }else{
                                             echo '<td><img src="View/img/usuarios/default/anonymous.png" class="img-thumbnail" width="100px"></td>';
                                         }
@@ -147,8 +147,8 @@
                             <img src="View/img/usuarios/default/anonymous.png" class="img-thumbnail previsualizar" width="200px">
                         </div>
                     </div>
-
                 </div>
+
                 <div class="modal-footer justify-content-between" style="background: #1b5e45; color:white;">
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
                     <button type="submit" class="btn btn-primary">Guardar</button>

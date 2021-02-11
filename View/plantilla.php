@@ -39,6 +39,8 @@
         echo '<link rel="stylesheet" href="View/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.css">';
         /* Toastr */
         echo '<link rel="stylesheet" href="View/plugins/toastr/toastr.css">';
+        /* FullCalendar */
+        echo '<link rel="stylesheet" href="View/plugins/fullcalendar/main.css">';
 
         /* jQuery 3 */
         echo '<script src="View/plugins/jquery/jquery.js"></script>';
@@ -65,11 +67,9 @@
         echo '<script src="View/plugins/toastr/toastr.min.js"></script>';
         /* Custom File Input */
         echo '<script src="View/plugins/bs-custom-file-input/bs-custom-file-input.js"></script>';
-
-        /* InputMask */
-        echo '<script src="View/plugins/input-mask/jquery.inputmask.js"></script>';
-        echo '<script src="View/plugins/input-mask/jquery.inputmask.phone.extensions.js"></script>';
-        echo '<script src="View/plugins/input-mask/jquery.inputmask.extensions.js"></script>';
+        /* fullCalendar */
+        echo '<link rel="stylesheet" href="View/plugins/moment/moment.min.js">';
+        echo '<link rel="stylesheet" href="View/plugins/fullcalendar/main.js">';
 
 
     } else {
@@ -105,7 +105,7 @@
 </head>
 <body <?php
         if (isset($_SESSION["iniciarSesion"]) && $_SESSION["iniciarSesion"] == "ok"){
-            echo 'class="hold-transition sidebar-mini"';
+            echo 'class="sidebar-mini sidebar-collapse"';
         }else{
             echo 'class="hold-transition login-page"';
         }?>>
@@ -125,9 +125,12 @@
                 $_GET["ruta"] == "centrocosto" ||
                 $_GET["ruta"] == "tarea" ||
                 $_GET["ruta"] == "proveedores" ||
+                $_GET["ruta"] == "varios" ||
                 $_GET["ruta"] == "facturas" ||
                 $_GET["ruta"] == "productos" ||
+                $_GET["ruta"] == "detalle-producto" ||
                 $_GET["ruta"] == "orden" ||
+                $_GET["ruta"] == "progreso" ||
                 $_GET["ruta"] == "calendario" ||
                 $_GET["ruta"] == "reporte-sr" ||
                 $_GET["ruta"] == "reporte-st" ||
@@ -153,6 +156,7 @@
 
     <script src="View/js/platilla.js"></script>
     <script src="View/js/usuarios.js"></script>
+    <script src="View/js/producto.js"></script>
 
     <aside class="control-sidebar control"></aside>
 

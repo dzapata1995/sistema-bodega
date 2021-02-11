@@ -3,7 +3,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Ordenes de Aplicación</h1>
+                    <h1 class="m-0">Listado de Ordenes</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -17,51 +17,57 @@
     </div>
 
     <section class="content">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <button class="btn btn-outline-success" data-toggle="modal" data-target="#modalAddCC">
-                                Agregar Producto
+        <div class="card">
+            <div class="card-header"></div>
+            <div class="card-body p-0">
+                <table class="table table-striped projects">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Tarea</th>
+                        <th>Centro Costo</th>
+                        <th>Productos</th>
+                        <th class="text-center">Estado</th>
+                        <th>Progreso</th>
+                        <th>Fecha Inicio</th>
+                        <th>Fecha Termino</th>
+                        <th style="width: 250px;"></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Abonar</td>
+                        <td>N_1</td>
+                        <td>Sustrato</td>
+                        <td class="project-state">
+                            <span class="badge badge-info">Activo</span>
+                        </td>
+                        <td class="project-progress">
+                            <div class="progress progress-sm">
+                                <div class="progress-bar bg-green" role="progressbar" aria-valuenow="57" aria-valuemin="0" aria-valuemax="100" style="width: 57%;"></div>
+                            </div>
+                            <small>57% Completado</small>
+                        </td>
+                        <td>2021-02-19</td>
+                        <td>2021-02-26</td>
+                        <td class="project-actions text-right">
+                            <a href="progreso" class="btn btn-primary btn-sm">
+                                <i class="fas fa-folder"></i>
+                                Ver
+                            </a>
+                            <button class="btn btn-info btn-sm">
+                                <i class="fas fa-pencil-alt"></i>
+                                Editar
                             </button>
-                        </div>
-                        <div class="card-body">
-                            <table class="table table-bordered table-striped dt-responsive tabla">
-                                <thead>
-                                <tr>
-                                    <th style="width: 10px">#</th>
-                                    <th>Nombre</th>
-                                    <th>Imagen</th>
-                                    <th>N° Factura</th>
-                                    <th>Proveedor</th>
-                                    <th>Cantidad Total</th>
-                                    <th>Ultimo Ingreso</th>
-                                    <th>Acciones</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Sustrato Profesional Organic Lite 50Lts</td>
-                                    <td><img src="View/img/productos/ex.jpg" class="img-thumbnail" width="50px"></td>
-                                    <td>3111635</td>
-                                    <td>Juan Perez</td>
-                                    <td>200</td>
-                                    <td>2021-01-27</td>
-                                    <td>
-                                        <div class="btn-group">
-                                            <button class="btn btn-success"><i class="fa fa-plus"></i></button>
-                                            <button class="btn btn-warning"><i class="fa fa-pencil"></i></button>
-                                            <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
+                            <button class="btn btn-danger btn-sm">
+                                <i class="fas fa-trash"></i>
+                                Borrar
+                            </button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </section>
