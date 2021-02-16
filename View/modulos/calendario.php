@@ -40,4 +40,31 @@
 </div>
 
 <script>
+
+    var date = new Date()
+    var d = date.getDate(),
+        m = date.getMonth(),
+        y = date.getFullYear()
+
+    var Calendar = FullCalendar.Calendar;
+    var calendarEl = document.getElementById('calendar');
+
+    var calendar = new Calendar(calendarEl, {
+        headerToolbar: {
+            left: 'prev,next today',
+            center: 'title',
+            right: 'dayGridMonth,timeGridWeek,timeGridDay'
+        },
+        firstDay: 1,
+        timeZone: 'America/Santiago',
+        themeSystem: 'bootstrap',
+        buttonIcon: true,
+        weekNumbers: false,
+        locale: 'es',
+        events: [],
+        editable: true
+    });
+
+    calendar.render();
+
 </script>

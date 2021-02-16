@@ -13,12 +13,28 @@ $(document).on("click", ".btnEditarProducto", function () {
         processData: false,
         dataType: "json",
         success: function (respuesta){
+
+            var datosBodega = new FormData();
+            datosBodega.append("idBodega", respuesta["fk_bodega"]);
+
+            $.ajax({
+                url: "ajax/varios.ajax.php",
+                method: "POST",
+                data: datosBodega,
+                cache: false,
+                contentType: false,
+                processData: false,
+                dataType: "json",
+                success: function (respuesta) {
+                    $("#editarUbicacion").val(respuesta["id"]);
+                    $("#editarUbicacion").html(respuesta["nombre"]);
+                }
+            })
+
             $("#editarCodigo").val(respuesta["codigo"]);
             $("#editarProducto").val(respuesta["nombre"]);
             $("#editarDescripcion").val(respuesta["descripcion"]);
             $("#editarMedida").val(respuesta["unidad_medida"]);
-            $("#editarUbicacion").html(respuesta["fk_bodega"]);
-            $("#editarUbicacion").val(respuesta["fk_bodega"]);
             $("#fotoActual").val(respuesta["imagen"]);
 
             if (respuesta["imagen"] != "") {
@@ -42,25 +58,33 @@ $(document).on("click", ".btnVerProducto", function () {
         processData: false,
         dataType: "json",
         success: function (respuesta) {
+
+            var datosBodega = new FormData();
+            datosBodega.append("idBodega", respuesta["fk_bodega"]);
+
+            $.ajax({
+                url: "ajax/varios.ajax.php",
+                method: "POST",
+                data: datosBodega,
+                cache: false,
+                contentType: false,
+                processData: false,
+                dataType: "json",
+                success: function (respuesta) {
+                    $("#verUbicacion").val(respuesta["id"]);
+                    $("#verUbicacion").html(respuesta["nombre"]);
+                }
+            })
+
             $("#verCodigo").val(respuesta["codigo"]);
             $("#verProducto").val(respuesta["nombre"]);
             $("#verDescripcion").val(respuesta["descripcion"]);
             $("#verStock").val(respuesta["cantidad_total"]);
             $("#verUnidad").val(respuesta["unidad_medida"]);
-            $("#verUbicacion").val(respuesta["fk_bodega"]);
-            $("#verUbicacion").html(respuesta["fk_bodega"]);
             $("#fotoActual").val(respuesta["imagen"]);
             if (respuesta["imagen"] != "") {
                 $(".previsualizar").attr("src", respuesta["imagen"]);
             }
         }
     })
-})
-
-/* DataTable Dinamica JSON */
-$.ajax({
-    url: "ajax/datatable-productos.ajax.php",
-    success: function (respuesta) {
-
-    }
 })

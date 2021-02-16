@@ -21,9 +21,11 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <button class="btn btn-outline-success" data-toggle="modal" data-target="#modalAddFactura">
-                                Registrar Factura
-                            </button>
+                            <a href="crear-factura">
+                                <button class="btn btn-outline-success">
+                                    Registrar Factura
+                                </button>
+                            </a>
                         </div>
                         <div class="card-body">
                             <table class="table table-bordered table-striped tabla">
@@ -33,6 +35,7 @@
                                     <th>N° Factura</th>
                                     <th>Producto</th>
                                     <th>Proveedor</th>
+                                    <th>Fecha Emisión</th>
                                     <th>Acciones</th>
                                 </tr>
                                 </thead>

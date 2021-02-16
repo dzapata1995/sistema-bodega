@@ -21,14 +21,14 @@
                 <button class="btn btn-outline-success" data-toggle="modal" data-target="#modalAddProducto">Ingresar Producto</button>
             </div>
             <div class="card-body">
-                <table class="table table-bordered table-striped tabla">
+                <table class="table table-bordered table-striped tabla" width="100%">
                     <thead>
                     <tr>
+                        <th style="width: 10px;">#</th>
                         <th>Código</th>
                         <th>Producto</th>
-                        <th>Imagen</th>
                         <th>Ubicación</th>
-                        <th>Stock</th>
+                        <th style="width: 160px">Stock</th>
                         <th>Acciones</th>
                     </tr>
                     </thead>
@@ -39,17 +39,16 @@
 
                     $productos = ControladorProductos::ctrMostrarProductos($item, $valor);
 
+                    $i = 0;
+
                     foreach ($productos as $key => $value) {
 
+                        $i++;
+
                         echo '<tr>
+                                <td>'.$i.'</td>
                                 <td>'.$value["codigo"].'</td>
                                 <td>'.$value["nombre"].'</td>';
-
-                        if ($value["imagen"] != "") {
-                            echo '<td><img src="'.$value["imagen"].'" class="img-thumbnail" width="100px"></td>';
-                        } else {
-                            echo '<td><img src="View/img/productos/default/default.png" class="img-thumbnail" width="100px"></td>';
-                        }
 
                         $item = "id";
                         $valor = $value["fk_bodega"];
@@ -57,7 +56,17 @@
                         $bodega = ControladorVarios::ctrMostrarBodega($item, $valor);
 
                         echo '<td>'.$bodega["nombre"].'</td>        
-                                <td>'.$value["cantidad_total"].' '.$value["unidad_medida"].'</td>
+                                <td>';
+                                    if ($value["cantidad_total"] <= 10) {
+                                        echo '<i style="width: 150px;" class="btn btn-danger">'.$value["cantidad_total"].' '.$value["unidad_medida"].'</i>';
+                                    } else if ($value["cantidad_total"] > 11 && $value["cantidad_total"] <= 15) {
+                                        echo '<button style="width: 150px;" class="btn btn-warning disabled">'.$value["cantidad_total"].' '.$value["unidad_medida"].'</button>';
+                                    } else {
+                                        echo '<button style="width: 150px;" class="btn btn-success disabled">'.$value["cantidad_total"].' '.$value["unidad_medida"].'</button>';
+                                    }
+
+                                echo '</td>
+                                                                
                                 <td>
                                     <div class="btn-group">
                                         <button class="btn btn-success btnVerProducto" idProducto1="'.$value["id"].'" data-toggle="modal" data-target="#modalVerProducto"><i class="fas fa-info-circle"></i></button>
@@ -203,7 +212,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fas fa-building"></i></span>
                                     <select class="form-control" name="editarUbicacion">
-                                        <option value="" id="editarUbicacion" hidden selected></option>
+                                        <option value="" id="editarUbicacion" hidden selected></option>'
                                         <?php
                                         $item = null;
                                         $valor = null;
@@ -213,6 +222,7 @@
                                         foreach ($bodega as $key => $value) {
                                             echo '<option value="'.$value["id"].'">'.$value["nombre"].'</option>';
                                         }
+
                                         ?>
                                     </select>
                                 </div>
@@ -322,7 +332,7 @@
                 </div>
             </div>
             <div class="modal-footer justify-content-between">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-danger float-right" data-dismiss="modal">Cerrar</button>
             </div>
         </div>
     </div>

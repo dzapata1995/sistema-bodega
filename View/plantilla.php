@@ -68,8 +68,8 @@
         /* Custom File Input */
         echo '<script src="View/plugins/bs-custom-file-input/bs-custom-file-input.js"></script>';
         /* fullCalendar */
-        echo '<link rel="stylesheet" href="View/plugins/moment/moment.min.js">';
-        echo '<link rel="stylesheet" href="View/plugins/fullcalendar/main.js">';
+        echo '<script src="View/plugins/moment/moment.min.js"></script>';
+        echo '<script src="View/plugins/fullcalendar/main.js"></script>';
 
 
     } else {
@@ -127,6 +127,7 @@
                 $_GET["ruta"] == "proveedores" ||
                 $_GET["ruta"] == "varios" ||
                 $_GET["ruta"] == "facturas" ||
+                $_GET["ruta"] == "crear-factura" ||
                 $_GET["ruta"] == "productos" ||
                 $_GET["ruta"] == "detalle-producto" ||
                 $_GET["ruta"] == "orden" ||
