@@ -7,7 +7,7 @@ class ControladorCentroCosto {
             if(preg_match('/^[a-zA-Z0-9_]+$/', $_POST["nuevoCodigo"])) {
                 $tabla = "centrocosto";
 
-                $datos = array("codigo" => $_POST["nuevoCodigo"],
+                $datos = array("codigo_cc" => $_POST["nuevoCodigo"],
                                 "estacion" => $_POST["nuevoEstacion"],
                                 "fruta" => $_POST["nuevoFruta"]);
 
