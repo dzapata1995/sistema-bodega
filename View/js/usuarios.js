@@ -134,8 +134,14 @@ $("#nuevoRun").change(function () {
         dataType: "json",
         success: function (respuesta) {
             if (respuesta) {
-                 $("#nuevoRun").parent().after('<div class="alert alert-warning">Usuario ya existe.</div>');
-                 $("#nuevoRun").val("");
+                $("#nuevoRun").val("");
+
+                Swal.fire({
+                    title: '!El RUT ya se encuentra ingresado!',
+                    icon: 'error',
+                    focusConfirm: false,
+                    confirmButtonText: 'Cerrar'
+                });
             }
         }
     })

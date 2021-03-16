@@ -45,12 +45,15 @@
 
                                 $item = null;
                                 $valor = null;
+                                $count = null;
 
                                 $usuarios = ControladorUsuarios::ctrMostrarUsuarios($item, $valor);
 
                                 foreach ($usuarios as $key => $value) {
+                                    $count++;
+
                                     echo '<tr>
-                                        <td>'.$value["id"].'</td>
+                                        <td>'.$count.'</td>
                                         <td>'.$value["nombre"].'</td>
                                         <td>'.$value["run"].'</td>';
 
@@ -96,7 +99,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form method="post" role="form" enctype="multipart/form-data">
+            <form id="formAddUsuario" method="post" role="form" enctype="multipart/form-data" autocomplete="off">
                 <div class="modal-body">
                     <div class="form-group">
                         <div class="input-group-prepend">
@@ -249,3 +252,15 @@
 
     </div>
 </div>
+
+
+<script>
+    $("#nuevoRun").rut({
+        formatOn: 'keyup', validateOn: 'keyup'
+    }).on('rutInvalido', function(){
+        $(this).addClass("is-invalid")
+    })
+        .on('rutValido', function(){
+        $(this).removeClass("is-invalid")
+    });
+</script>

@@ -7,10 +7,10 @@
                 </div>
                 <h3 class="login-box-msg" style="color: white">SISTEMA DE BODEGA</h3>
             </div>
-            <form class="login100-form validate-form" method="post">
+            <form class="login100-form validate-form" method="post" autocomplete="off">
                 <div class="wrap-input100 validate-input m-b-26" data-validate="Usuario es requerido">
                     <span class="label-input100">Usuario</span>
-                    <input class="input100" type="text" name="ingUsuario" placeholder="Ingrese Usuario">
+                    <input class="input100" type="text" name="ingUsuario" id="ingUsuario" placeholder="Ingrese Rut Usuario">
                     <span class="glyphicon glyphicon-user form-control-feedback"></span>
                     <span class="focus-input100"></span>
                 </div>
@@ -46,3 +46,11 @@
         </div>
     </div>
 </div>
+
+<script>
+
+$("#ingUsuario").rut({
+    formatOn: 'keyup'
+});
+
+</script>

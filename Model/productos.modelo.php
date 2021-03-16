@@ -22,10 +22,10 @@ class ModeloProductos {
     }
 
     public static function mdlIngresarProductos($tabla, $datos) {
-        $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(codigo, nombre, descripcion, imagen, unidad_medida, fk_bodega) VALUES (:codigo, :nombre, :descripcion, :imagen, :unidad_medida, :fk_bodega)");
+        $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(codigo_producto, nombre_producto, descripcion, imagen, unidad_medida, fk_bodega) VALUES (:codigo_producto, :nombre_producto, :descripcion, :imagen, :unidad_medida, :fk_bodega)");
 
-        $stmt->bindParam(":codigo", $datos["codigo"], PDO::PARAM_STR);
-        $stmt->bindParam(":nombre", $datos["nombre"], PDO::PARAM_STR);
+        $stmt->bindParam(":codigo_producto", $datos["codigo_producto"], PDO::PARAM_STR);
+        $stmt->bindParam(":nombre_producto", $datos["nombre_producto"], PDO::PARAM_STR);
         $stmt->bindParam(":descripcion", $datos["descripcion"], PDO::PARAM_STR);
         $stmt->bindParam(":imagen", $datos["imagen"], PDO::PARAM_STR);
         $stmt->bindParam(":unidad_medida", $datos["unidad_medida"], PDO::PARAM_STR);
@@ -42,10 +42,10 @@ class ModeloProductos {
     }
 
     public static function mdlEditarProducto($tabla, $datos) {
-        $stmt = Conexion::conectar()->prepare("UPDATE $tabla SET nombre = :nombre, descripcion = :descripcion,
+        $stmt = Conexion::conectar()->prepare("UPDATE $tabla SET nombre_producto = :nombre_producto, descripcion = :descripcion,
                  imagen = :imagen, unidad_medida = :unidad_medida, fk_bodega = :fk_bodega");
 
-        $stmt->bindParam(":nombre", $datos["nombre"], PDO::PARAM_STR);
+        $stmt->bindParam(":nombre_producto", $datos["nombre_producto"], PDO::PARAM_STR);
         $stmt->bindParam(":descripcion", $datos["descripcion"], PDO::PARAM_STR);
         $stmt->bindParam(":imagen", $datos["imagen"], PDO::PARAM_STR);
         $stmt->bindParam(":unidad_medida", $datos["unidad_medida"], PDO::PARAM_STR);
@@ -60,5 +60,21 @@ class ModeloProductos {
         $stmt->close();
         $stmt = null;
 
+    }
+
+    public static function mdlActualizarProducto($tabla, $item1, $valor1, $valor) {
+        $stmt = Conexion::conectar()->prepare("UPDATE $tabla SET $item1 = :$item1 WHERE id = :$id");
+
+        $stmt->bindParam(":".$item1, $valor1, PDO::PARAM_STR);
+        $stmt->bindParam(":id", $valor, PDO::PARAM_STR);
+
+        if ($stmt -> execute()) {
+            return "ok";
+        } else {
+            return "error";
+        }
+
+        $stmt->close();
+        $stmt->null;
     }
 }

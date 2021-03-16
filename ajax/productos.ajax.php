@@ -6,13 +6,25 @@ require_once "../Model/productos.modelo.php";
 class AjaxProductos {
 
     public $idProducto;
+    public $traerProductos;
 
     public function ajaxEditarProducto(){
-        $item = "id";
-        $valor = $this->idProducto;
-        $respuesta = ControladorProductos::ctrMostrarProductos($item, $valor);
 
-        echo json_encode($respuesta);
+        if ($this->traerProductos == "ok") {
+            $item = null;
+            $valor = null;
+
+            $respuesta = ControladorProductos::ctrMostrarProductos($item, $valor);
+
+            echo json_encode($respuesta);
+        } else {
+            $item = "id";
+            $valor = $this->idProducto;
+            $respuesta = ControladorProductos::ctrMostrarProductos($item, $valor);
+
+            echo json_encode($respuesta);
+        }
+
     }
 
     public function ajaxVerProducto() {
@@ -35,4 +47,10 @@ if (isset($_POST["idProducto1"])) {
     $ver = new AjaxProductos();
     $ver->idProducto = $_POST["idProducto1"];
     $ver->ajaxVerProducto();
+}
+
+if (isset($_POST["traerProductos"])) {
+    $traerProductos = new ajaxProductos();
+    $traerProductos -> traerProductos = $_POST["traerProductos"];
+    $traerProductos -> ajaxEditarProducto();
 }

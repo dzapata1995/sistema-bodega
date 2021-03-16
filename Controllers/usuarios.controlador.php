@@ -5,7 +5,7 @@ class ControladorUsuarios {
     public static function ctrIngresoUsuario(){
 
         if (isset($_POST["ingUsuario"])) {
-            if (preg_match('/^[a-zA-Z0-9]+$/', $_POST["ingUsuario"]) &&
+            if (preg_match('/^[a-zA-Z0-9.-]+$/', $_POST["ingUsuario"]) &&
                 preg_match('/^[a-zA-Z0-9]+$/', $_POST["ingPassword"])) {
 
                 $encriptar = crypt($_POST["ingPassword"], '$2a$07$asxx54ahjppf45sd87a5a4dDDGsystemdev$');
@@ -49,14 +49,14 @@ class ControladorUsuarios {
 
                             echo '<script>
                                     window.location = "inicio";
-                                 </script>';
+                                </script>';
 
                         }
 
                     } else {
 
                         echo '<br>
-                             <div class="alert alert-danger">El usuario aún no esta activado</div>';
+                            <div class="alert alert-danger">El usuario aún no esta activado</div>';
 
                     }
 
@@ -75,7 +75,7 @@ class ControladorUsuarios {
 
         if (isset($_POST["nuevoRun"])) {
             if (preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevoNombre"]) &&
-                preg_match('/^[a-zA-Z0-9]+$/', $_POST["nuevoRun"]) &&
+                preg_match('/^[a-zA-Z0-9.-]+$/', $_POST["nuevoRun"]) &&
                 preg_match('/^[a-zA-Z0-9]+$/', $_POST["nuevoPassword"])){
 
 
@@ -143,9 +143,9 @@ class ControladorUsuarios {
                             showConfirmButton: true,
                             confirmButtonText: "Cerrar"
                         }).then(function (result){
-                           if (result.value) {
-                               window.location = "usuarios";
-                           } 
+                            if (result.value) {
+                                window.location = "usuarios";
+                            }
                         });
                     </script>';
 
@@ -160,9 +160,9 @@ class ControladorUsuarios {
                         showConfirmButton: true,
                         confirmButtonText: "Cerrar"
                     }).then(function(result) {
-                       if (result.value) {
-                           window.location = "usuarios";
-                       } 
+                        if (result.value) {
+                            window.location = "usuarios";
+                        }
                     });
                 </script>';
 
@@ -243,7 +243,7 @@ class ControladorUsuarios {
                                 }).then(function(result) {
                                     if (result.value) {
                                         window.location = "usuarios";
-                                    } 
+                                    }
                                 });
                             </script>';
                     }
@@ -252,11 +252,11 @@ class ControladorUsuarios {
                     $encriptar = $_POST["passwordActual"];
                 }
 
-                $datos = array("nombre" => $_POST["editarNombre"],
-                               "run" => $_POST["editarRun"],
-                               "password" => $encriptar,
-                               "rol" => $_POST["editarRol"],
-                               "foto" => $ruta);
+                $datos = array( "nombre" => $_POST["editarNombre"],
+                                "run" => $_POST["editarRun"],
+                                "password" => $encriptar,
+                                "rol" => $_POST["editarRol"],
+                                "foto" => $ruta);
 
                 $respuesta = ModeloUsuarios::mdlEditarUsuario($tabla, $datos);
 
@@ -269,9 +269,9 @@ class ControladorUsuarios {
                             showConfirmButton: true,
                             confirmButtonText: "Cerrar"
                         }).then(function (result){
-                           if (result.value) {
-                               window.location = "usuarios";
-                           } 
+                            if (result.value) {
+                                window.location = "usuarios";
+                            }
                         });
                     </script>';
 
@@ -283,9 +283,9 @@ class ControladorUsuarios {
                             showConfirmButton: true,
                             confirmButtonText: "Cerrar"
                         }).then(function (result){
-                           if (result.value) {
-                               window.location = "usuarios";
-                           } 
+                            if (result.value) {
+                                window.location = "usuarios";
+                            }
                         });
                     </script>';
                 }

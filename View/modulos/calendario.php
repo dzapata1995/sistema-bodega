@@ -22,8 +22,8 @@
                 <div class="col-md-3">
                     <div class="sticky-top mb-3">
                         <div class="card">
-                            <div class="card-header"></div>
-                            <div class="card-body"></div>
+                            <div class="card-body">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -40,7 +40,6 @@
 </div>
 
 <script>
-
     var date = new Date()
     var d = date.getDate(),
         m = date.getMonth(),
@@ -53,7 +52,7 @@
         headerToolbar: {
             left: 'prev,next today',
             center: 'title',
-            right: 'dayGridMonth,timeGridWeek,timeGridDay'
+            right: 'dayGridMonth,timeGridWeek'
         },
         firstDay: 1,
         timeZone: 'America/Santiago',
@@ -66,5 +65,4 @@
     });
 
     calendar.render();
-
 </script>

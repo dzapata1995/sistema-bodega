@@ -42,12 +42,12 @@
                                 $item = null;
                                 $valor = null;
 
-                                $tareas = ControladorTareas::ctrMostrarUsuarios($item, $valor);
+                                $tareas = ControladorTareas::ctrMostrarTareas($item, $valor);
 
                                 foreach ($tareas as $key => $value) {
                                     echo '<tr>
                                 <td>'.$value["id"].'</td>
-                                <td>'.$value["nombre"].'</td>
+                                <td>'.$value["nombre_tarea"].'</td>
                                 <td>'.$value["descripcion"].'</td>
                                 <td>'.$value["ano"].'</td>
                                 <td style="width: 20px;">

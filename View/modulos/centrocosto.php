@@ -47,7 +47,7 @@
                                 foreach ($centrocosto as $key => $value) {
                                     echo '<tr>
                                     <td>'.$value["id"].'</td>
-                                    <td>'.$value["codigo"].'</td>
+                                    <td>'.$value["codigo_cc"].'</td>
                                     <td>'.$value["estacion"].'</td>
                                     <td>'.$value["fruta"].'</td>
                                     <td style="width: 20px">

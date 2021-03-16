@@ -8,7 +8,7 @@ class ControladorTareas {
 
                 $tabla = "tareas";
 
-                $datos = array("nombre" => $_POST["nuevoNombre"],
+                $datos = array("nombre_tarea" => $_POST["nuevoNombre"],
                                "ano" => $_POST["nuevoAno"],
                                "descripcion" => $_POST["nuevoDescripcion"]
                     );
@@ -17,7 +17,7 @@ class ControladorTareas {
 
                 if ($respuesta == 'ok') {
                     echo '<script>
-                        swal({
+                        Swal.fire({
                             type: "success",
                             title: "!La tarea ha sido guardado Correctamente¡",
                             showConfirmButton: true,
@@ -31,7 +31,7 @@ class ControladorTareas {
                 }
             } else {
                 echo '<script>
-                    swal({
+                    Swal.fire({
                         type: "error",
                         title: "!El nombre de la Tarea no puede ir vacío o llevar caracteres especiales¡",
                         showConfirmButton: true,
@@ -46,7 +46,7 @@ class ControladorTareas {
         }
     }
 
-    public static function ctrMostrarUsuarios($item, $valor) {
+    public static function ctrMostrarTareas($item, $valor) {
         $tabla = "tareas";
         $respuesta = ModeloTareas::mdlMostrarTareas($tabla, $item, $valor);
 

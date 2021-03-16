@@ -8,8 +8,7 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a class="text-success" href="inicio">Inicio</a></li>
-                        <li class="breadcrumb-item">Orden de Aplicación</li>
-                        <li class="breadcrumb-item">Administrar</li>
+                        <li class="breadcrumb-item"><a class="text-success" href="orden">Orden de Aplicación</a></li>
                         <li class="breadcrumb-item active">Progreso</li>
                     </ol>
                 </div>

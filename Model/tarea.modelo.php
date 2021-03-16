@@ -7,6 +7,10 @@ class ModeloTareas {
     public static function mdlMostrarTareas($tabla, $item, $valor) {
         if ($item != null){
             $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item = :$item");
+            $stmt -> bindParam(":".$item, $valor, PDO::PARAM_STR);
+            $stmt -> execute();
+
+            return $stmt->fetch();
         } else {
             $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla");
             $stmt->execute();
@@ -19,9 +23,9 @@ class ModeloTareas {
     }
 
     public static function mdlIngresarTarea($tabla, $datos){
-        $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(nombre, ano, descripcion) VALUES (:nombre, :ano, :descripcion)");
+        $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(nombre_tarea, ano, descripcion) VALUES (:nombre_tarea, :ano, :descripcion)");
 
-        $stmt->bindParam(":nombre", $datos["nombre"], PDO::PARAM_STR);
+        $stmt->bindParam(":nombre_tarea", $datos["nombre_tarea"], PDO::PARAM_STR);
         $stmt->bindParam(":ano", $datos["ano"], PDO::PARAM_INT);
         $stmt->bindParam(":descripcion", $datos["descripcion"], PDO::PARAM_STR);
 

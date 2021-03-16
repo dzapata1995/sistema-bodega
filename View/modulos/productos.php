@@ -21,7 +21,7 @@
                 <button class="btn btn-outline-success" data-toggle="modal" data-target="#modalAddProducto">Ingresar Producto</button>
             </div>
             <div class="card-body">
-                <table class="table table-bordered table-striped tabla" width="100%">
+                <table class="table table-bordered table-striped tablaProductos" width="100%">
                     <thead>
                     <tr>
                         <th style="width: 10px;">#</th>
@@ -32,51 +32,6 @@
                         <th>Acciones</th>
                     </tr>
                     </thead>
-                    <tbody>
-                    <?php
-                    $item = null;
-                    $valor = null;
-
-                    $productos = ControladorProductos::ctrMostrarProductos($item, $valor);
-
-                    $i = 0;
-
-                    foreach ($productos as $key => $value) {
-
-                        $i++;
-
-                        echo '<tr>
-                                <td>'.$i.'</td>
-                                <td>'.$value["codigo"].'</td>
-                                <td>'.$value["nombre"].'</td>';
-
-                        $item = "id";
-                        $valor = $value["fk_bodega"];
-
-                        $bodega = ControladorVarios::ctrMostrarBodega($item, $valor);
-
-                        echo '<td>'.$bodega["nombre"].'</td>        
-                                <td>';
-                                    if ($value["cantidad_total"] <= 10) {
-                                        echo '<i style="width: 150px;" class="btn btn-danger">'.$value["cantidad_total"].' '.$value["unidad_medida"].'</i>';
-                                    } else if ($value["cantidad_total"] > 11 && $value["cantidad_total"] <= 15) {
-                                        echo '<button style="width: 150px;" class="btn btn-warning disabled">'.$value["cantidad_total"].' '.$value["unidad_medida"].'</button>';
-                                    } else {
-                                        echo '<button style="width: 150px;" class="btn btn-success disabled">'.$value["cantidad_total"].' '.$value["unidad_medida"].'</button>';
-                                    }
-
-                                echo '</td>
-                                                                
-                                <td>
-                                    <div class="btn-group">
-                                        <button class="btn btn-success btnVerProducto" idProducto1="'.$value["id"].'" data-toggle="modal" data-target="#modalVerProducto"><i class="fas fa-info-circle"></i></button>
-                                        <button class="btn btn-warning btnEditarProducto" idProducto="'.$value["id"].'" data-toggle="modal" data-target="#modalEditarProducto"><i class="fas fa-edit"></i></button>
-                                    </div>
-                                </td>
-                              </tr>';
-                        }
-                    ?>
-                    </tbody>
                 </table>
             </div>
         </div>
@@ -133,12 +88,6 @@
                             </div>
                         </div>
 
-                        <style>
-                            .vl {
-                                border-left: 6px solid #1b5e45;
-                                height: auto;
-                            }
-                        </style>
                         <div class="vl"></div>
 
                         <div class="col">
@@ -278,6 +227,7 @@
                 </div>
                 <?php
                 $editarProducto = new ControladorProductos();
+                $editarProducto->ctrEditarProducto();
                 ?>
             </form>
         </div>
@@ -305,7 +255,7 @@
                     <div class="col-12 col-sm-6">
                         <h3 class="my-3">
                             <input type="text" id="verProducto" name="verProducto" class="form-control" disabled></h3>
-                        <p>Codigo: <input type="text" id="verCodigo" disabled></p>
+                        <p>Codigo: <input class="form-control" type="text" id="verCodigo" disabled></p>
                         <hr>
                         <p><textarea class="form-control" rows="7" id="verDescripcion" disabled></textarea></p>
                         <h4 class="mt-3">
@@ -325,7 +275,13 @@
                         <hr>
                         <div class="bg-gradient-green py-2 px-3 mt-4 text-center">
                             <h2 class="mb-0">
-                                Stock Total: <input id="verStock" disabled class="text-center">
+                                Stock Total:
+                                    <div class="row">
+                                        <div class="input-group">
+                                            <input id="verStock" disabled class="form-control-lg text-center">
+                                            <input id="verUnidad" disabled class="form-control-lg text-center">
+                                        </div>
+                                    </div>
                             </h2>
                         </div>
                     </div>

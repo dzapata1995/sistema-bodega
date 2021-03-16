@@ -4,13 +4,13 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Sistema de Bodega - San Isidro</title>
-  <!-- Tell the browser to be responsive to screen width -->
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Sistema de Bodega - San Isidro</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
-   <link rel="icon" href="View/img/plantilla/logo.png">
+    <link rel="icon" href="View/img/plantilla/logo.png">
 
     <?php
 
@@ -41,36 +41,46 @@
         echo '<link rel="stylesheet" href="View/plugins/toastr/toastr.css">';
         /* FullCalendar */
         echo '<link rel="stylesheet" href="View/plugins/fullcalendar/main.css">';
+        /* Daterange picker */
+        echo '<link rel="stylesheet" href="View/plugins/daterangepicker/daterangepicker.css">';
+        /* Select2 */
+        echo '<link rel="stylesheet" href="View/plugins/select2/css/select2.css">';
+        echo '<link rel="stylesheet" href="View/plugins/select2-bootstrap4-theme/select2-bootstrap4.css">';
 
         /* jQuery 3 */
         echo '<script src="View/plugins/jquery/jquery.js"></script>';
+        echo '<script src="View/plugins/moment/moment-with-locales.js"></script>';
+        echo '<script src="plugins/moment/"></script>';
+        echo '<script src="View/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.js"></script>';
         /* Bootstrap 4 */
-        echo '<script src="View/plugins/bootstrap/js/bootstrap.bundle.js"></script>';
+        echo '<script type="text/javascript" src="View/plugins/bootstrap/js/bootstrap.bundle.js"></script>';
         /* FastClick */
-        echo '<script src="View/plugins/fastclick/fastclick.js"></script>';
+        echo '<script type="text/javascript" src="View/plugins/fastclick/fastclick.js"></script>';
         /* AdminLTE App */
-        echo '<script src="View/dist/js/adminlte.js"></script>';
-        echo '<script src="View/dist/js/demo.js"></script>';
+        echo '<script type="text/javascript" src="View/dist/js/adminlte.js"></script>';
+        echo '<script type="text/javascript" src="View/dist/js/demo.js"></script>';
         /* DataTables */
-        echo '<script src="View/plugins/datatables/jquery.dataTables.js"></script>';
-        echo '<script src="View/plugins/datatables-bs4/js/dataTables.bootstrap4.js"></script>';
-        echo '<script src="View/plugins/datatables-responsive/js/dataTables.responsive.js"></script>';
-        echo '<script src="View/plugins/datatables-responsive/js/responsive.bootstrap4.js"></script>';
-        echo '<script src="View/plugins/datatables-buttons/js/dataTables.buttons.js"></script>';
-        echo '<script src="View/plugins/datatables-buttons/js/buttons.bootstrap4.js"></script>';
-        echo '<script src="View/plugins/datatables-buttons/js/buttons.html5.js"></script>';
-        echo '<script src="View/plugins/datatables-buttons/js/buttons.colVis.js"></script>';
-        echo '<script src="View/plugins/datatables-buttons/js/buttons.print.js"></script>';
+        echo '<script type="text/javascript" src="View/plugins/datatables/jquery.dataTables.js"></script>';
+        echo '<script type="text/javascript" src="View/plugins/datatables-bs4/js/dataTables.bootstrap4.js"></script>';
+        echo '<script type="text/javascript" src="View/plugins/datatables-responsive/js/dataTables.responsive.js"></script>';
+        echo '<script type="text/javascript" src="View/plugins/datatables-responsive/js/responsive.bootstrap4.js"></script>';
+        echo '<script type="text/javascript" src="View/plugins/datatables-buttons/js/dataTables.buttons.js"></script>';
+        echo '<script type="text/javascript" src="View/plugins/datatables-buttons/js/buttons.bootstrap4.js"></script>';
+        echo '<script type="text/javascript" src="View/plugins/datatables-buttons/js/buttons.html5.js"></script>';
+        echo '<script type="text/javascript" src="View/plugins/datatables-buttons/js/buttons.colVis.js"></script>';
+        echo '<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>';
+        echo '<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>';
+        echo '<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>';
         /* SweetAlert2 */
-        echo '<script src="View/plugins/sweetalert2/sweetalert2.all.js"></script>';
+        echo '<script type="text/javascript" src="View/plugins/sweetalert2/sweetalert2.all.js"></script>';
         /* Toastr */
-        echo '<script src="View/plugins/toastr/toastr.min.js"></script>';
+        echo '<script type="text/javascript" src="View/plugins/toastr/toastr.min.js"></script>';
         /* Custom File Input */
-        echo '<script src="View/plugins/bs-custom-file-input/bs-custom-file-input.js"></script>';
+        echo '<script type="text/javascript" src="View/plugins/bs-custom-file-input/bs-custom-file-input.js"></script>';
         /* fullCalendar */
-        echo '<script src="View/plugins/moment/moment.min.js"></script>';
-        echo '<script src="View/plugins/fullcalendar/main.js"></script>';
-
+        echo '<script type="text/javascript" src="View/plugins/fullcalendar/main.js"></script>';
+        /* Select2 */
+        echo '<script type="text/javascript" src="View/plugins/select2/js/select2.full.js"></script>';
 
     } else {
 
@@ -86,21 +96,20 @@
         echo '<link rel="stylesheet" href="View/components/css/main.css">';
         echo '<link rel="stylesheet" href="View/dist/css/AdminLTE.css">';
 
-        echo '<script src="View/components/vendor/jquery/jquery-3.2.1.min.js"></script>';
-        echo '<script src="View/components/vendor/animsition/js/animsition.min.js"></script>';
+        echo '<script type="text/javascript" src="View/components/vendor/jquery/jquery-3.2.1.min.js"></script>';
+        echo '<script type="text/javascript" src="View/components/vendor/animsition/js/animsition.min.js"></script>';
 
-        echo '<script src="View/components/vendor/bootstrap/js/popper.js"></script>';
-        echo '<script src="View/components/vendor/bootstrap/js/bootstrap.min.js"></script>';
-        echo '<script src="View/components/vendor/select2/select2.min.css"></script>';
-        echo '<script src="View/components/vendor/daterangepicker/moment.min.js"></script>';
-        echo '<script src="View/components/vendor/daterangepicker/daterangepicker.js"></script>';
-        echo '<script src="View/components/vendor/countdowntime/countdowntime.js"></script>';
-        echo '<script src="View/components/js/main.js"></script>';
-        echo '<script src="View/dist/js/adminlte.js"></script>';
+        echo '<script type="text/javascript" src="View/components/vendor/bootstrap/js/popper.js"></script>';
+        echo '<script type="text/javascript" src="View/components/vendor/bootstrap/js/bootstrap.min.js"></script>';
+        echo '<script type="text/javascript" src="View/components/vendor/select2/select2.min.css"></script>';
+        echo '<script type="text/javascript" src="View/components/vendor/daterangepicker/moment.min.js"></script>';
+        echo '<script type="text/javascript" src="View/components/vendor/daterangepicker/daterangepicker.js"></script>';
+        echo '<script type="text/javascript" src="View/components/vendor/countdowntime/countdowntime.js"></script>';
+        echo '<script type="text/javascript" src="View/components/js/main.js"></script>';
+        echo '<script type="text/javascript" src="View/dist/js/adminlte.js"></script>';
     }
     ?>
-
-
+    <script src="View/js/jquery.rut.js"></script>
 
 </head>
 <body <?php
@@ -131,6 +140,9 @@
                 $_GET["ruta"] == "productos" ||
                 $_GET["ruta"] == "detalle-producto" ||
                 $_GET["ruta"] == "orden" ||
+                $_GET["ruta"] == "list-orden" ||
+                $_GET["ruta"] == "asignar" ||
+                $_GET["ruta"] == "detalle" ||
                 $_GET["ruta"] == "progreso" ||
                 $_GET["ruta"] == "calendario" ||
                 $_GET["ruta"] == "reporte-sr" ||
@@ -155,9 +167,19 @@
 
     ?>
 
+
+    <style>
+        .vl {
+            border-left: 6px solid #28a745;
+            height: auto;
+        }
+    </style>
+
     <script src="View/js/platilla.js"></script>
     <script src="View/js/usuarios.js"></script>
     <script src="View/js/producto.js"></script>
+    <script src="View/js/facturas.js"></script>
+    <script src="View/js/orden.js"></script>
 
     <aside class="control-sidebar control"></aside>
 
